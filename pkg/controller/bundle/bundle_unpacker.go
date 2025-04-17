@@ -147,8 +147,12 @@ func (c *ConfigMapUnpacker) job(cmRef *corev1.ObjectReference, bundlePath string
 							},
 							Resources: corev1.ResourceRequirements{
 								Requests: corev1.ResourceList{
-									corev1.ResourceCPU:    resource.MustParse("10m"),
-									corev1.ResourceMemory: resource.MustParse("50Mi"),
+									corev1.ResourceCPU:    resource.MustParse("50m"),
+									corev1.ResourceMemory: resource.MustParse("52Mi"),
+									corev1.ResourceEphemeralStorage: resource.MustParse("1Gi"),
+								},
+								Limits: corev1.ResourceList{
+									corev1.ResourceEphemeralStorage: resource.MustParse("1Gi"),
 								},
 							},
 							SecurityContext: &corev1.SecurityContext{
@@ -174,6 +178,10 @@ func (c *ConfigMapUnpacker) job(cmRef *corev1.ObjectReference, bundlePath string
 								Requests: corev1.ResourceList{
 									corev1.ResourceCPU:    resource.MustParse("10m"),
 									corev1.ResourceMemory: resource.MustParse("50Mi"),
+									corev1.ResourceEphemeralStorage: resource.MustParse("1Gi"),
+								},
+								Limits: corev1.ResourceList{
+									corev1.ResourceEphemeralStorage: resource.MustParse("1Gi"),
 								},
 							},
 							SecurityContext: &corev1.SecurityContext{
@@ -202,6 +210,10 @@ func (c *ConfigMapUnpacker) job(cmRef *corev1.ObjectReference, bundlePath string
 								Requests: corev1.ResourceList{
 									corev1.ResourceCPU:    resource.MustParse("10m"),
 									corev1.ResourceMemory: resource.MustParse("50Mi"),
+									corev1.ResourceEphemeralStorage: resource.MustParse("1Gi"),
+								},
+								Limits: corev1.ResourceList{
+									corev1.ResourceEphemeralStorage: resource.MustParse("1Gi"),
 								},
 							},
 							SecurityContext: &corev1.SecurityContext{
