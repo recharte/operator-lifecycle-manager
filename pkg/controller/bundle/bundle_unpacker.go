@@ -693,6 +693,7 @@ func (c *ConfigMapUnpacker) ensureJob(cmRef *corev1.ObjectReference, bundlePath 
 		}
 	}
 
+	fresh.Spec.Containers[0].Resources = job.Spec.Containers[0].Resources
 	if equality.Semantic.DeepDerivative(fresh.GetOwnerReferences(), job.GetOwnerReferences()) && equality.Semantic.DeepDerivative(fresh.Spec, job.Spec) {
 		return
 	}
